@@ -1,15 +1,13 @@
-'use client'
-import WeatherData from "@/utils/type";
-import { AreaChart, Card, Title } from "@tremor/react";
+"use client";
+import { AreaChart, Card, Title, BarChart } from "@tremor/react";
 import { Suspense } from "react";
-import { useState } from 'react';
+import WeatherData from "@/utils/type";
 
-type Props = {
+interface Props {
   data: WeatherData;
-};
+}
 
-const TemperatureChart = ({ data }: Props) => {
-  const [value, setValue] = useState<number | undefined>(undefined);
+function RainChart({ data }: Props) {
   const hourly =  [
     '12 AM', '01 AM', '02 AM', '03 AM', '04 AM',
     '05 AM', '06 AM', '07 AM', '08 AM', '09 AM',
@@ -31,29 +29,29 @@ const TemperatureChart = ({ data }: Props) => {
 
   const _data = hourly?.map((hour, index) => ({
     time: hourly[index],
-    [formatDate[0]]: data?.hourly.temperature_2m[index],
-    [formatDate[1]]: data?.hourly.temperature_2m[index + 24],
-    [formatDate[2]]: data?.hourly.temperature_2m[index + 48],
-
+    [formatDate[0]]: data?.hourly.precipitation[index],
+    [formatDate[1]]: data?.hourly.precipitation[index + 24],
+    [formatDate[2]]: data?.hourly.precipitation[index + 48],
   }));
 
+  console.log(data?.hourly.precipitation);
   return (
-    <Card className=" max-w-5xl">
-      <Title>Temperature Forecast</Title>
+    <Card>
+      <Title>precipitation</Title>
       <Suspense fallback={<>Loading...</>}>
-        <AreaChart
+        <BarChart
           className="mt-6"
           data={_data ?? []}
+          showLegend
           index="time"
           categories={[formatDate[0],formatDate[1],formatDate[2]]}
           colors={["teal", "zinc", "rose"]}
-          valueFormatter={(n: number) => `${n} °C`}
-          onValueChange={(v) => {}}
-          yAxisWidth={30}
+          valueFormatter={(n: number) => `${n} mm`}
+          yAxisWidth={40}
         />
       </Suspense>
     </Card>
   );
-};
+}
 
-export default TemperatureChart;
+export default RainChart;

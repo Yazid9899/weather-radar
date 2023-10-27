@@ -12,10 +12,10 @@ type Props = {
 }
 const SideBar = ({ city, lat, long, data }: Props ) => {
   return (
-    <div className="bg-gradient-to-br from-[#394F68] to-[#183B7B] text-white p-10">
+    <div className=" md:max-w-[500px] top-0 left-0 bg-gradient-to-br from-[#394F68] to-[#183B7B] text-white p-10">
 
       <div className="pb-5">
-        <h1 className="text-6xl font-bold">{decodeURI(city)}</h1>
+        <h1 className="text-5xl font-bold">{decodeURI(city)}</h1>
         <p className="font-extralight">Long/Lat: {long}, {lat}</p>
       </div>
 
@@ -101,7 +101,7 @@ const SideBar = ({ city, lat, long, data }: Props ) => {
           <div className="flex-1 flex justify-between items-center">
             
             <p className="font-extralight">Sunset</p>
-            
+
             <p className="uppercase text-2xl">
               {new Date((data?.daily?.sunset ?? [])![0]).toLocaleTimeString(
                 "en-GB",
