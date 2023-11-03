@@ -15,6 +15,13 @@ const config: Config = {
     current: "currentColor",
     extend: {
       colors: {
+        gray: {
+          10: '#EEEEEE',
+          20: '#A2A2A2',
+          30: '#7B7B7B',
+          50: '#585858',
+          90: '#141414',
+        },
         // light mode
         tremor: {
           brand: {
