@@ -3,19 +3,22 @@ import { Card, Subtitle, Text, Divider, Title } from "@tremor/react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#394F68] to-[#183B7B] p-10 flex-col justify-center">
-      <Card className="max-w-4xl mx-auto mt-10">
-        <h1 className="text-[64px] font-[700] leading-[120%] text-center mb-10 text-gray-50">Weather Radar</h1>
-        <Subtitle className="text-xl text-center">
+    <div className="bg-overlay-image bg-cover h-screen bg-no-repeat bg-center p-5 lg:p-10 flex-col justify-center">
+      <div className=" mt-10 bg-transparent">
+        <h1 className="text-[64px] font-[500] sm:text-[90px] md:font-[1000] lg:leading-[120%] text-center mb-5 text-gray-10 ">
+          Weather Radar
+        </h1>
+        <Subtitle className="lg:text-xl text-center">
           Powered By next.js, Tailwind css, Tremor 2.0 + More!
         </Subtitle>
 
-        <Divider className="my-10"></Divider>
-        
-        <Card className="bg-gradient-to-br from-[#394F68] to-[#183B7B]">
-          <CityPicker></CityPicker>
-        </Card>
-      </Card>
+        <div className="lg:mx-[10rem]">
+          <Divider className="my-10"></Divider>
+          <Card className="bg-transparent">
+            <CityPicker></CityPicker>
+          </Card>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

@@ -14,6 +14,9 @@ const config: Config = {
     transparent: "transparent",
     current: "currentColor",
     extend: {
+      backgroundImage: {
+        'overlay-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg")'
+      },
       colors: {
         gray: {
           10: '#EEEEEE',
